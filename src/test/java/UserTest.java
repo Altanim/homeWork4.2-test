@@ -19,9 +19,11 @@ public class UserTest {
         Assertions.assertTrue(Objects.equals(user.getLogin(), CORRECT_LOGIN) &&
                 Objects.equals(user.getMail(), CORRECT_MAIL));
         User user1 = new User(EMPTY_LOGIN,CORRECT_MAIL);
-        User user2 = new User(CORRECT_LOGIN,EMPTY_MAIL);
         Assertions.assertNotEquals(user,user1);
+        User user2 = new User(CORRECT_LOGIN,EMPTY_MAIL);
         Assertions.assertNotEquals(user,user2);
+        User user3 = new User(EMPTY_LOGIN,EMPTY_MAIL);
+        Assertions.assertNotEquals(user,user3);
     }
     @Test
     public void addOnlySpacesUser() {
@@ -29,8 +31,11 @@ public class UserTest {
         Assertions.assertTrue(Objects.equals(user.getLogin(), CORRECT_LOGIN) &&
                 Objects.equals(user.getMail(), CORRECT_MAIL));
         User user1 = new User(CORRECT_LOGIN,ONLY_SPACES_MAIL);
-        User user2 = new User(ONLY_SPACES_LOGIN,CORRECT_MAIL);
         Assertions.assertNotEquals(user,user1);
+        User user2 = new User(ONLY_SPACES_LOGIN,CORRECT_MAIL);
+        Assertions.assertNotEquals(user,user2);
+        User user3 = new User(ONLY_SPACES_LOGIN,ONLY_SPACES_MAIL);
+        Assertions.assertNotEquals(user,user3);
     }
     @Test
     public void isCorrectMail() {
